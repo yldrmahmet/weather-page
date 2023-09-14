@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- leaflet harita kutuphanesi-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <title>hava durumu</title>
+</head>
+
+<body>
+    <div class="container">
+        
+        <div class="header">
+            <h1>HAVA DURUMU</h1>
+            <input type="text" id="searchBar" class="searchBar" placeholder="Sehir giriniz">
+        </div>
+
+        <div class="content">
+            <div class="city">lutfen arama kismina sehir ismi giriniz</div>
+            <div class="temp"></div>
+            <div class="desc"></div>
+            <div class="maxmin"></div>
+        
+        </div>
+        <div class="gomap">
+            <button id="button">HARITA UZERINDE INCELEMEK ICIN TIKLAYIN</button>
+        </div>
+        
+        <div class="footer">
+            <small><small><mark>Ahmet yildirim</mark></small></small>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

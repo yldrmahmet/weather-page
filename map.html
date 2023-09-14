@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- leaflet harita kutuphanesi, script kisim asagida-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+
+    <title>hava durumu haritali</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .namecity {
+            font-size: 40px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script>
+
+        // harita uzerinde gosterilecek degerleri getir
+        const cityName = new URLSearchParams(window.location.search).get('city');
+        const latitude = parseFloat(new URLSearchParams(window.location.search).get('lat'));
+        const longitude = parseFloat(new URLSearchParams(window.location.search).get('lon'));
+        const temperature = new URLSearchParams(window.location.search).get('temp');
+        const description = new URLSearchParams(window.location.search).get('desc');
+        const minMaxTemperature = new URLSearchParams(window.location.search).get('maxmin');
+
+        // bos harita, gostericegi yerin enlemini, boylamini ve buyuklugunu gir
+        const map = L.map('map').setView([latitude, longitude], 6);
+
+        // bu haritanin gorunmesini saglayan kod
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 8,
+            minZoom: 5,
+        }).addTo(map);
+
+        //const cityCoordinates = [latitude, longitude];
+
+        // isaretci ekle, isaretci haritada gosterilen yeri gostersin
+        const marker = L.marker([latitude, longitude]).addTo(map);
+
+        // İşarete bir başlık ekleyin (örneğin, şehir adı)
+        marker.bindPopup(`
+    <h2 class="namecity">${cityName}</h2>
+    <p class="txt">guncel sicaklik = ${temperature}</p>
+    <p class="txt">anlik durum = ${description}</p>
+    <p class="txt">en dusuk ve yuksek sicakliklar = ${minMaxTemperature}</p>
+`).openPopup();
+
+    </script>
+</body>
+
+</html>
