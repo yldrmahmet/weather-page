@@ -1,3 +1,2 @@
-# HavaDurumu
-html css js
-openweathermap
+# havadurumuahmet.netlify.app
+html, css, js
