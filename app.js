@@ -1,4 +1,4 @@
-// hata = sehri bulamayinca hata veriyor sebebini anlamadim
+
 
 // api url ve key
 const url = "http://api.openweathermap.org/data/2.5/";
