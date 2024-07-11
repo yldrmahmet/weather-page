@@ -1,5 +1,3 @@
-
-
 // api url ve key
 const url = "http://api.openweathermap.org/data/2.5/";
 const key = "6d3d9e93e56c54bd4bc9a0b2df9a759e";
